@@ -1,6 +1,13 @@
+<div align="center">
+  <img src="docs/banner.png" alt="dsh-windows-notification — Agent 干完活了？让 Windows 替你喊一声。" width="100%" />
+</div>
+
 # dsh-windows-notification
 
-> **让 DeepSeek Harness 用完 Windows 的通知：以桌面端自己的身份弹出，并且能直接在通知里操作。**
+> **Agent 干完活了？让 Windows 替你喊一声。**
+>
+> 把 DeepSeek Harness 的状态，交给 Windows 通知中心——以桌面端自己的身份弹出原生 Toast；
+> 来不及切回 DSH？直接在通知里点「允许一次」、选选项，把 Agent 放行。
 
 [![GitHub](https://img.shields.io/badge/GitHub-zhangyuzhangyu233%2Fdsh--windows--notification-3fbf7f?logo=github)](https://github.com/zhangyuzhangyu233/dsh-windows-notification)
 [![dsh-plugin](https://img.shields.io/badge/topic-dsh--plugin-blue)](https://github.com/topics/dsh-plugin)
@@ -9,6 +16,12 @@
 [![Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0b7fd6)](#环境和限制)
 
 这是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的 Windows 原生通知插件。它把 Harness 里值得你抬头看一眼的时刻——**一轮回答完成、需要你确认一次工具调用、Agent 向你提问、一轮任务出错**——变成 Windows 通知中心里的原生 Toast：
+
+**一句话卖点：**
+
+- 💬 **Agent 干完活了？** 让 Windows 替你喊一声——不用一直盯着终端。
+- 🖱️ **通知替你按按钮**——审批点「允许一次」，提问直接选选项，人不用切回来。
+- 🪶 **零依赖 · 纯本机 · MIT**——只用一个 PowerShell + WinRT，不联网、不要管理员权限。
 
 ## 截图
 
