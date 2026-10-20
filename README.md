@@ -10,6 +10,7 @@
 > 来不及切回 DSH？直接在通知里点「允许一次」、选选项，把 Agent 放行。
 
 [![GitHub](https://img.shields.io/badge/GitHub-zhangyuzhangyu233%2Fdsh--windows--notification-3fbf7f?logo=github)](https://github.com/zhangyuzhangyu233/dsh-windows-notification)
+[![npm](https://img.shields.io/npm/v/dsh-windows-notification?color=cb3837&logo=npm)](https://www.npmjs.com/package/dsh-windows-notification)
 [![dsh-plugin](https://img.shields.io/badge/topic-dsh--plugin-blue)](https://github.com/topics/dsh-plugin)
 [![release](https://img.shields.io/github/v/release/zhangyuzhangyu233/dsh-windows-notification?color=3fbf7f)](https://github.com/zhangyuzhangyu233/dsh-windows-notification/releases)
 [![MIT](https://img.shields.io/badge/license-MIT-3fbf7f)](LICENSE)
@@ -97,6 +98,18 @@ DeepSeek Harness
 
 5. **重启一次 DeepSeek Harness**，刷新页面后在 **设置 → 内置插件 → Windows 通知** 看到配置页
    （旧版 OSS `dsh web` 运行时则是 **设置 → 插件 → 插件配置** 里的卡片）。
+
+### 从 npm 安装
+
+已发布到 npm：[`dsh-windows-notification`](https://www.npmjs.com/package/dsh-windows-notification)
+
+```bash
+npm install dsh-windows-notification
+# 或作为 DSH profile 依赖：
+#   "dependencies": { "dsh-windows-notification": "^1.3.0" }
+```
+
+也可以在 DSH 的插件管理里直接从 npm 安装 `dsh-windows-notification`，然后重启一次 DeepSeek Harness。
 
 ### 开发模式
 
