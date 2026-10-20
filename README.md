@@ -4,6 +4,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-zhangyuzhangyu233%2Fdsh--windows--notification-3fbf7f?logo=github)](https://github.com/zhangyuzhangyu233/dsh-windows-notification)
 [![dsh-plugin](https://img.shields.io/badge/topic-dsh--plugin-blue)](https://github.com/topics/dsh-plugin)
+[![release](https://img.shields.io/github/v/release/zhangyuzhangyu233/dsh-windows-notification?color=3fbf7f)](https://github.com/zhangyuzhangyu233/dsh-windows-notification/releases)
 [![MIT](https://img.shields.io/badge/license-MIT-3fbf7f)](LICENSE)
 [![Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0b7fd6)](#环境和限制)
 
@@ -59,7 +60,12 @@ DeepSeek Harness
 
 ### 从本地目录安装（推荐）
 
-1. 把本仓库放到任意目录，例如 `C:\plugins\dsh-windows-notification`；
+1. 克隆或下载本仓库到任意目录，例如：
+
+   ```bash
+   git clone https://github.com/zhangyuzhangyu233/dsh-windows-notification C:/plugins/dsh-windows-notification
+   ```
+
 2. 在 DSH 的插件管理里「从本地目录安装」本目录，条目名为 **Windows 系统通知 / Windows Notification**；
 3. 在 profile 的 `package.json` 里加入依赖并以 `link:` 方式链接：
 
