@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Windows 系统通知",
+    "description": "以 DeepSeek Harness 桌面端身份发送原生 Windows 通知：智能摘要的完成/出错提醒、可在通知里直接处理的审批、带选项按钮的 Agent 提问；内置演示选项，并同时支持新版桌面端与旧版 Web 运行时的设置界面。"
+  }
+}

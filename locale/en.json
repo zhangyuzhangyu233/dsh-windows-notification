@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Windows Notification",
+    "description": "Native Windows toasts under the DeepSeek Harness app identity: smart turn-complete and error summaries, approvals you can answer from the notification, and agent questions with option buttons. Includes a demo option for every notification kind and a settings page for both DSH runtimes."
+  }
+}

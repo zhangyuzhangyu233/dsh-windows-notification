@@ -1,0 +1,27 @@
+# Host-side Windows notification bridge for DeepSeek Harness.
+# The row below mounts this package's host half. Its config is the composition
+# "base" layer for the user-editable `windows-notification` settings namespace:
+# values here are what Settings -> Plugins -> Windows notification shows as the
+# defaults, and the user document overrides them.
+- insert:
+    - id: dsh-windows-notification
+      name: 'dsh-windows-notification'
+      config:
+        enabled: true
+        onTurnComplete: true
+        onApproval: true
+        onError: true
+        onUserQuestion: true
+        skipWhenForeground: true
+        includePreview: true
+        smartSummary: true
+        sessionCollapse: true
+        sound: default
+        approvalActions: true
+        approvalTimeoutSec: 30
+        questionActions: true
+        questionTimeoutSec: 60
+        maxPreviewChars: 180
+        demoKind: question-options
+        testPing: 0
+        demoPing: 0

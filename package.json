@@ -1,0 +1,61 @@
+{
+  "name": "dsh-windows-notification",
+  "version": "1.3.0",
+  "type": "module",
+  "description": "Native Windows toast notifications for DeepSeek Harness: smart turn-complete/error summaries, approval actions and agent-question options under the DSH desktop app identity, with a demo option and a settings page for both runtimes.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "windows",
+    "notification",
+    "notifications",
+    "toast",
+    "cordis",
+    "plugin"
+  ],
+  "license": "MIT",
+  "author": "zhangyuzhangyu233",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyuzhangyu233/dsh-windows-notification.git"
+  },
+  "homepage": "https://github.com/zhangyuzhangyu233/dsh-windows-notification",
+  "bugs": {
+    "url": "https://github.com/zhangyuzhangyu233/dsh-windows-notification/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "toast.ps1",
+    "notify-handler.ps1",
+    "setup-protocol.ps1",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "docs/INTERNALS.md",
+    "docs/screenshots/settings-page-preview.png",
+    "docs/screenshots/toast-examples.png",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

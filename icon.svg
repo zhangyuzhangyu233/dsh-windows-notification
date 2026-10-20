@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Windows Notification">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2a4a"/>
+      <stop offset="0.55" stop-color="#10203c"/>
+      <stop offset="1" stop-color="#0a1526"/>
+    </linearGradient>
+    <linearGradient id="bell" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#8fd3ff"/>
+      <stop offset="1" stop-color="#4d7dff"/>
+    </linearGradient>
+    <linearGradient id="dot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9d7a"/>
+      <stop offset="1" stop-color="#ff5c5c"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+  <path d="M22 96c8-9 4-22 6-33 3-19 12-33 30-33s27 14 30 33c2 11-2 24 6 33" fill="none" stroke="url(#bell)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M42 99a22 22 0 0 0 44 0" fill="none" stroke="url(#bell)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="58" cy="63" r="3.4" fill="#0a1526"/>
+  <circle cx="70" cy="63" r="3.4" fill="#0a1526"/>
+  <circle cx="96" cy="40" r="13" fill="url(#dot)" stroke="#0a1526" stroke-width="4"/>
+  <path d="M38 118h52" stroke="#4d7dff" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+</svg>
