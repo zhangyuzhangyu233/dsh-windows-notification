@@ -37,8 +37,8 @@
 # DSH only (action "open") and never errors.
 #
 # Focus policy: focus=0/false/no/off never steals focus; focus=1/true/yes/on forces it.
-# "open" always focuses; answers/demos only focus when forced; approve/deny keep the
-# v1.0 behaviour (focus).
+# "open" always focuses; answers/demos only focus when forced. Approval/deny callers
+# may opt out with focus=0; plugin-generated decision buttons do so.
 #
 # Test-only override (never passed by Windows): -BridgeFile <path> reads a different
 # bridge descriptor, so the fake-bridge harness never touches the live bridge.json.

@@ -43,6 +43,7 @@
     "LICENSE",
     "locale/*.json",
     "notify-handler.ps1",
+    "notify-launcher.vbs",
     "README.md",
     "setup-protocol.ps1",
     "toast.ps1"

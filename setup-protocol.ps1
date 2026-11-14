@@ -9,9 +9,9 @@
 #   "URL Protocol"       = ""
 #   dshLaunchTarget      = absolute path of the DSH executable (used by
 #                          notify-handler.ps1 when DSH is not running)
-#   shell\open\command   = "<powershell.exe>" -NoLogo -NoProfile -NonInteractive
-#                          -ExecutionPolicy Bypass -WindowStyle Hidden
-#                          -File "<notify-handler.ps1>" "%1"
+#   shell\open\command   = "<wscript.exe>" //B //NoLogo
+#                          "<notify-launcher.vbs>" "%1"
+#   notify-launcher.vbs starts PowerShell with a hidden window to avoid a console flash.
 #
 # Usage:
 #   setup-protocol.ps1 [-HandlerPath <absolute notify-handler.ps1>]
@@ -86,6 +86,16 @@ try {
         throw ('notify-handler.ps1 not found: ' + $handler)
     }
 
+    $launcher = Join-Path $pluginRoot 'notify-launcher.vbs'
+    if (-not (Test-Path -LiteralPath $launcher -PathType Leaf)) {
+        throw ('notify-launcher.vbs not found: ' + $launcher)
+    }
+
+    $wscriptExe = Join-Path $env:SystemRoot 'System32\wscript.exe'
+    if (-not (Test-Path -LiteralPath $wscriptExe -PathType Leaf)) {
+        throw ('Windows Script Host not found: ' + $wscriptExe)
+    }
+
     $psExe = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
     if (-not (Test-Path -LiteralPath $psExe -PathType Leaf)) {
         throw ('Windows PowerShell 5.1 not found: ' + $psExe)
@@ -119,7 +129,7 @@ try {
     $keyPath = 'HKCU:\Software\Classes\dsh-notify'
     $commandKeyPath = Join-Path $keyPath 'shell\open\command'
     $desiredDefault = 'URL:DeepSeek Harness Notification'
-    $desiredCommand = '"' + $psExe + '" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "' + $handler + '" "%1"'
+    $desiredCommand = '"' + $wscriptExe + '" //B //NoLogo "' + $launcher + '" "%1"'
 
     $currentDefault = Get-RegValue -Path $keyPath -Name '(default)'
     $currentUrlProtocol = Get-RegValue -Path $keyPath -Name 'URL Protocol'

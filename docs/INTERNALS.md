@@ -194,13 +194,13 @@ setup-protocol.ps1 -HandlerPath <absolute notify-handler.ps1> [-LaunchTarget <ab
 
 ```
 notify-handler.ps1 <uri>
-  uri examples: dsh-notify://open?session=<id>   dsh-notify://decision?action=approve&approval=<id>&session=<id>
+  uri examples: dsh-notify://open?session=<id>   dsh-notify://decision?action=approve&approval=<id>&session=<id>&focus=0
   Steps:
   1. Parse the URI robustly (PowerShell receives it as $args[0]; strip quotes). Query values are URI-decoded.
   2. Read %LOCALAPPDATA%\dsh-windows-notification\bridge.json {port,token}; POST
      {"token", "action":"open"|"approve"|"deny", "sessionId", "approvalId"} to http://127.0.0.1:<port>/action
      with 2.5s timeout via Invoke-RestMethod/HttpClient. Ignore/log failures; never block > 3s.
-  3. For open (and by default for decision too, unless action says otherwise): bring the DSH window forward:
+  3. Only `open` actions bring DSH window forward; generated approve/deny actions carry `focus=0` and stay in the toast:
      find a "DeepSeek Harness" process with a main window, ShowWindow(SW_RESTORE), SetForegroundWindow.
      If DSH is not running, start the launch target stored by setup-protocol.ps1.
   4. Append one line to %LOCALAPPDATA%\dsh-windows-notification\handler.log (bounded to ~64 KB) and exit 0.
@@ -340,6 +340,7 @@ The settings card must offer a **demo option** (a selectable demo kind) plus a "
 ## New protocol URIs (host builds the XML; handler parses, never rewrites)
 
 ```
+dsh-notify://decision?action=approve|deny&approval=<id>&session=<sid>&focus=0
 dsh-notify://question?action=option&question=<qtoken>&choice=<index>&session=<sid>&focus=0
 dsh-notify://question?action=text&question=<qtoken>&session=<sid>&focus=0     (+ input id "reply")
 dsh-notify://question?action=open&question=<qtoken>&session=<sid>
@@ -358,7 +359,7 @@ dsh-notify://demo?kind=question-text&focus=0
 - `action=option` → `action:"answer"` + `choice`; `action=text` → `action:"answer"` + `text`;
   for a text toast the Windows input value arrives appended to the URI (e.g. `&reply=hello`); accept
   `reply`, `text`, `input`, `answer` query names as the input value.
-- `focus=0` means do not steal focus (answers/demos); `open` still focuses.
+- `focus=0` means do not steal focus (answers, demos, approve, and deny); only `open` focuses DSH.
 - Handler stays Windows PowerShell 5.1, one JSON line on stdout, exit 0, 2.5 s bridge budget.
 
 ## Host behaviour

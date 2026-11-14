@@ -676,14 +676,14 @@ function dismissAction() {
   return { content: '知道了', activationType: 'system', arguments: 'dismiss' }
 }
 
-/** Protocol action that answers one pending approval through the bridge. */
+/** Protocol action that answers one pending approval without focusing DSH. */
 function decisionAction(content, action, approvalId, sessionId) {
   return {
     content,
     activationType: 'protocol',
     arguments: `dsh-notify://decision?action=${action}&approval=${encodeURIComponent(
       approvalId,
-    )}&session=${encodeURIComponent(sessionId || '')}`,
+    )}&session=${encodeURIComponent(sessionId || '')}&focus=0`,
   }
 }
 

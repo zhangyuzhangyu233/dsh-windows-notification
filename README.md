@@ -159,12 +159,12 @@ npm install dsh-windows-notification
 
 Windows 对未打包的 Win32 应用提供两种 Toast 激活方式。插件使用 **协议激活（protocol activation）**，不需要 COM 服务、不需要管理员权限：
 
-1. 宿主插件在 `HKCU\Software\Classes\dsh-notify` 注册 `dsh-notify://` 协议，指向插件目录里的 `notify-handler.ps1`；
+1. 宿主插件在 `HKCU\Software\Classes\dsh-notify` 注册 `dsh-notify://` 协议，由无控制台的 `wscript.exe` 启动插件目录里的 `notify-launcher.vbs`；
 2. Toast 按钮/正文携带 `dsh-notify://…` URI；
-3. 点击通知时 Windows 启动 `notify-handler.ps1`：
+3. 点击通知时 `notify-launcher.vbs` 隐藏启动 PowerShell 的 `notify-handler.ps1`：
    - 读取宿主插件写在 `%LOCALAPPDATA%\dsh-windows-notification\bridge.json` 里的本机回环端口与一次性 token；
    - 把 `open` / `approve` / `deny` / `answer` / `demo` 动作 POST 给宿主插件的本机回环桥；
-   - 需要时把 DeepSeek Harness 窗口还原并切到前台。
+   - 只有「打开 DSH」等打开类操作会把窗口切到前台；审批/拒绝/回答动作在通知中完成，不主动切换焦点。
 4. 对于审批/提问，宿主插件在 `approval/request`、`user-questions/request` 瀑布里以 **一次性 id** 等待回环桥的决定；
    超时/取消/异常一律回退到应用内 UI，绝不阻塞 Agent。
 
